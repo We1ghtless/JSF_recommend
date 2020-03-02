@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
 
@@ -8,7 +8,7 @@ DEBUG = True
 with open ('data.json') as read_file:
     data = json.load(read_file)
 
-
+answers = []
 
 
 # instantiate the app
@@ -17,6 +17,15 @@ app.config.from_object(__name__)
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
+
+@app.route('/answers', methods=['GET', 'POST'])
+def addAnswer():
+    if request.method == 'POST' and i < 10:
+        req_data = request.get_json()
+        answers.append(req_data)
+        message = '1'
+
+    return message
 
 
 @app.route('/0', methods=['GET'])

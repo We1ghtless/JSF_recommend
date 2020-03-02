@@ -1,12 +1,16 @@
 <template>
-  <div class="formBox" name="box">
-    <h3>{{ question.question }}</h3>
-    <select class="form-control">
-      <option hidden value="" selected>Select an option...</option>
-      <option v-bind:key="answer" v-for="answer in question.answers" :value="answer">{{ answer }}</option>
-    </select>
-    <button type="button" class="btn btn-primary" @click="i += 1, getQuestions(), getResult()">Next</button>
-    <p>{{i}}</p>
+  <div class="">
+    <div class="formBox" name="box">
+      <h3>{{ question.question }}</h3>
+      <div class="form-group">
+        <select class="custom-select" v-model='selected' required>
+          <option hidden value="" selected disabled>Select an option...</option>
+          <option v-bind:key="answer" v-for="answer in question.answers" :value="answer">{{ answer }}</option>
+        </select>
+        <div class="invalid-feedback">Select answer</div>
+      </div>
+      <button type="button" class="btn btn-primary" @click="postAnswer(), getQuestion(), getResult()">Next</button>
+    </div>
   </div>
 
   <!-- <div class="container">
@@ -34,7 +38,17 @@ export default {
     };
   },
   methods: {
-    getQuestions() {
+    postAnswer() {
+      const path = 'http://localhost:5000/answers'
+      axios.post(path, {
+        answer: this.selected
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      this.i = this.i + 1
+    },
+    getQuestion() {
       const path = 'http://localhost:5000/'+this.i;
       axios.get(path)
       .then((res) => {
@@ -52,7 +66,7 @@ export default {
     }
   },
   created() {
-    this.getQuestions();
+    this.getQuestion();
   },
 }
 </script>
@@ -74,5 +88,14 @@ export default {
   background-color: #BBECD2;
   text-align: center;
   max-width: 600px;
+}
+
+.form-control {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#back {
+
 }
 </style>

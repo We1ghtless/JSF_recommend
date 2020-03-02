@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <navBar/>
     <transition name="moveInUp">
     <router-view></router-view>
   </transition>
@@ -7,18 +8,18 @@
 </template>
 
 <script>
+import navBar from './components/Nav.vue'
 
 export default {
   name: 'App',
   components: {
-
+    'navBar': navBar
   }
 }
 </script>
 
 <style>
 #app {
-  margin-top: 60px
 }
 
 .moveInUp-enter-active {
