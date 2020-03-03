@@ -1,6 +1,6 @@
 <template lang="html">
   <nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">JSF Recommend</span>
+    <a href="/"><span class="navbar-brand mb-0 h1">JSF Recommend</span></a>
   </nav>
 </template>
 

@@ -20,13 +20,14 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 @app.route('/answers', methods=['GET', 'POST'])
 def addAnswer():
+    i = 0
     if request.method == 'POST' and i < 10:
         req_data = request.get_json()
         answers.append(req_data)
-        message = '1'
+        message = 'SUCCESS'
+        print answers
 
     return message
-
 
 @app.route('/0', methods=['GET'])
 def question1():
