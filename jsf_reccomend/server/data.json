@@ -1,12 +1,12 @@
 {
   "item1": {
     "id": "1",
-    "question": "Scale of Project",
-    "answers": ["Large", "Medium", "Small"]
+    "question": "What is the scale of your project?",
+    "answers": ["Large scale/enterprise level project", "Medium scale/business website", "Small scale/personal project"]
   },
   "item2": {
     "id": "2",
-    "question": "Developer Skill",
+    "question": "How skilled are the developers?",
     "answers": ["Expert", "Intermediate", "Beginner"]
   },
   "item3": {

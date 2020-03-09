@@ -1,18 +1,34 @@
 <template lang="html">
   <div class="">
     <span>
-      <p>Vue</p>
-      <p>Angular</p>
-      <p>React</p>
-      <p>framework 4</p>
-      <p>framework 5</p>
-      <p>framework 6</p>
+      {{ result }}
     </span>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+  name: 'Result',
+  data() {
+    return {
+      result: '',
+    }
+  },
+  methods: {
+    getResult(){
+      const path = 'http://localhost:5000/result'
+      axios.get(path)
+      .then((res) => {
+        this.result = res.data
+      })
+    }
+  },
+  created() {
+    this.getResult()
+  }
+
 }
 </script>
 
