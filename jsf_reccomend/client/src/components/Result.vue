@@ -1,8 +1,10 @@
 <template lang="html">
-  <div class="">
-    <span>
-      {{ result }}
-    </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" v-bind:key="poo" v-for="poo in result" name="result">
+        {{ poo }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,7 +24,6 @@ export default {
       axios.get(path)
       .then((res) => {
         this.result = res.data
-        alert(this.result)
       })
     }
   },
@@ -34,8 +35,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
-span {
-  margin: auto;
-  text-align: center;
-}
+
 </style>
