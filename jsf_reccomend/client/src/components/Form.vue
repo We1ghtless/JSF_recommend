@@ -49,6 +49,9 @@ export default {
         console.log(response);
       })
       this.i = this.i + 1
+      if (this.i > 3) {
+        this.i = 0
+      }
     },
     getQuestion() {
       const path = 'http://localhost:5000/'+this.i;

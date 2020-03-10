@@ -120,7 +120,18 @@ def result():
     (v_percent) = (float(v) / float(total))*float(100)
     (r_percent) = (float(r) / float(total))*float(100)
 
-    return jsonify(round(a_percent), round(v_percent), round(r_percent))
+    if a_percent >= v_percent and a_percent >= r_percent:
+        result = "Angular"
+        percent = round(a_percent)
+    elif v_percent >= a_percent and v_percent >= r_percent:
+        result = "Vue"
+        percent = round(v_percent)
+    elif r_percent >= a_percent and r_percent >= v_percent:
+        result = "React"
+        percent = round(r_percent)
+
+
+    return jsonify(result, str(percent)+'%')
 
 
 if __name__ == '__main__':
