@@ -62,7 +62,7 @@ export default {
       });
     },
     getResult() {
-      if (this.i == 10) {
+      if (this.i == 4) {
         this.$router.push({name:'Result'})
       }
     }

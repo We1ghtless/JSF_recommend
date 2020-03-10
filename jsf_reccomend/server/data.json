@@ -11,12 +11,12 @@
   },
   "item3": {
     "id": "3",
-    "question": "some kind of question",
-    "answers": ["answer 1", "answer 2", "answer 3"]
+    "question": "Is it an existing project which the framework will be integrated into?",
+    "answers": ["Yes", "No"]
   },
   "item4": {
     "id": "4",
-    "question": "some kind of question",
-    "answers": ["answer 1", "answer 2", "answer 3"]
+    "question": "Will the project be heavily maintained and frequently updated?",
+    "answers": ["Frequently updated with dynamic content", "Updated occassionally", "Rarely updated"]
   }
 }

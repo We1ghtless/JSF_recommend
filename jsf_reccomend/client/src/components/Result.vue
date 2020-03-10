@@ -22,6 +22,7 @@ export default {
       axios.get(path)
       .then((res) => {
         this.result = res.data
+        alert(this.result)
       })
     }
   },
