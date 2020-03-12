@@ -49,7 +49,7 @@ export default {
         console.log(response);
       })
       this.i = this.i + 1
-      if (this.i > 3) {
+      if (this.i > 4) {
         this.i = 0
       }
     },

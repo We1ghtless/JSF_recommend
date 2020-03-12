@@ -61,8 +61,8 @@ def question4():
     return jsonify(data['item4'])
 
 # Result response route which supplies the scores for each framework
-@app.route('/result', methods=['Get'])
-def result():
+@app.route('/first', methods=['Get'])
+def first():
     time.sleep(0.5)
 
     v = 0
@@ -127,6 +127,150 @@ def result():
         result = "Vue"
         percent = round(v_percent)
     elif r_percent >= a_percent and r_percent >= v_percent:
+        result = "React"
+        percent = round(r_percent)
+
+
+    return jsonify(result, str(percent)+'%')
+
+@app.route('/second', methods=['Get'])
+def second():
+    time.sleep(0.5)
+
+    v = 0
+    r = 0
+    a = 0
+
+    pig = json.loads(user_response[0])
+
+# Algorithm to score the frameworks based on user data
+    if pig["answer"] == 'Frequently updated with dynamic content':
+        r = r + 2
+
+    elif pig["answer"] == 'Updated occassionally':
+        r = r + 1
+        v = v + 1
+
+    elif pig["answer"] == 'Rarely updated':
+        a = a + 1
+        v = v + 1
+
+    horse = json.loads(user_response[1])
+
+    if horse["answer"] == 'Yes':
+        v = v + 2
+
+    cow = json.loads(user_response[2])
+
+    if cow["answer"] == 'Expert':
+        a = a + 1
+        r = r + 1
+
+    elif cow["answer"] == 'Intermediate':
+        r = r + 2
+
+    elif cow["answer"] == 'Beginner':
+        r = r + 1
+        v = v + 2
+
+    duck = json.loads(user_response[3])
+
+    if duck["answer"] == 'Large scale/enterprise level project':
+        a = a + 2
+        r = r + 1
+
+    elif duck["answer"] == 'Medium scale/business website':
+        r = r + 1
+
+    elif duck["answer"] == 'Small scale/personal project':
+        r = r + 1
+        v = v + 1
+
+    total = a + v + r
+
+    (a_percent) = (float(a) / float(total))*float(100)
+    (v_percent) = (float(v) / float(total))*float(100)
+    (r_percent) = (float(r) / float(total))*float(100)
+
+    if a_percent >= v_percent and a_percent <= r_percent or a_percent <= v_percent and a_percent >= r_percent:
+        result = "Angular"
+        percent = round(a_percent)
+    elif v_percent >= a_percent and v_percent <= r_percent or v_percent <= a_percent and v_percent >= r_percent:
+        result = "Vue"
+        percent = round(v_percent)
+    elif r_percent >= a_percent and r_percent <= v_percent or r_percent <= a_percent and r_percent >= v_percent:
+        result = "React"
+        percent = round(r_percent)
+
+
+    return jsonify(result, str(percent)+'%')
+
+@app.route('/third', methods=['Get'])
+def third():
+    time.sleep(0.5)
+
+    v = 0
+    r = 0
+    a = 0
+
+    pig = json.loads(user_response[0])
+
+# Algorithm to score the frameworks based on user data
+    if pig["answer"] == 'Frequently updated with dynamic content':
+        r = r + 2
+
+    elif pig["answer"] == 'Updated occassionally':
+        r = r + 1
+        v = v + 1
+
+    elif pig["answer"] == 'Rarely updated':
+        a = a + 1
+        v = v + 1
+
+    horse = json.loads(user_response[1])
+
+    if horse["answer"] == 'Yes':
+        v = v + 2
+
+    cow = json.loads(user_response[2])
+
+    if cow["answer"] == 'Expert':
+        a = a + 1
+        r = r + 1
+
+    elif cow["answer"] == 'Intermediate':
+        r = r + 2
+
+    elif cow["answer"] == 'Beginner':
+        r = r + 1
+        v = v + 2
+
+    duck = json.loads(user_response[3])
+
+    if duck["answer"] == 'Large scale/enterprise level project':
+        a = a + 2
+        r = r + 1
+
+    elif duck["answer"] == 'Medium scale/business website':
+        r = r + 1
+
+    elif duck["answer"] == 'Small scale/personal project':
+        r = r + 1
+        v = v + 1
+
+    total = a + v + r
+
+    (a_percent) = (float(a) / float(total))*float(100)
+    (v_percent) = (float(v) / float(total))*float(100)
+    (r_percent) = (float(r) / float(total))*float(100)
+
+    if a_percent <= v_percent and a_percent <= r_percent:
+        result = "Angular"
+        percent = round(a_percent)
+    elif v_percent <= a_percent and v_percent <= r_percent:
+        result = "Vue"
+        percent = round(v_percent)
+    elif r_percent <= a_percent and r_percent <= v_percent:
         result = "React"
         percent = round(r_percent)
 
