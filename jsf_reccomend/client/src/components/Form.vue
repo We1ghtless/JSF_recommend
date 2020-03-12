@@ -1,18 +1,20 @@
 <template>
-  <div class="form-group">
-    <form class="needs-validation" novalidate>
-      <div class="formBox" name="box">
-        <h3>{{ question.question }}</h3>
-        <div class="form-group">
-          <select class="custom-select browser-default" v-model='selected' required>
-            <option hidden value="" selected disabled>Select an option...</option>
-            <option v-bind:key="answer" v-for="answer in question.answers" :value="answer">{{ answer }}</option>
-          </select>
-          <div class="invalid-feedback">Select answer</div>
+  <div class="container">
+    <div class="form-group">
+      <form class="needs-validation" novalidate>
+        <div class="formBox" name="box">
+          <h3>{{ question.question }}</h3>
+          <div class="form-group">
+            <select class="custom-select browser-default" v-model='selected' required>
+              <option hidden value="" selected disabled>Select an option...</option>
+              <option v-bind:key="answer" v-for="answer in question.answers" :value="answer">{{ answer }}</option>
+            </select>
+            <div class="invalid-feedback">Select answer</div>
+          </div>
+          <button type="button" class="btn btn-primary" @click="postAnswer(), getQuestion(), getResult()">Next</button>
         </div>
-        <button type="button" class="btn btn-primary" @click="postAnswer(), getQuestion(), getResult()">Next</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 
   <!-- <div class="container">

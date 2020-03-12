@@ -73,7 +73,7 @@ def first():
 
 # Algorithm to score the frameworks based on user data
     if pig["answer"] == 'Frequently updated with dynamic content':
-        r = r + 2
+        r = r + 3
 
     elif pig["answer"] == 'Updated occassionally':
         r = r + 1
@@ -86,12 +86,12 @@ def first():
     horse = json.loads(user_response[1])
 
     if horse["answer"] == 'Yes':
-        v = v + 2
+        v = v + 3
 
     cow = json.loads(user_response[2])
 
     if cow["answer"] == 'Expert':
-        a = a + 1
+        a = a + 2
         r = r + 1
 
     elif cow["answer"] == 'Intermediate':
@@ -104,11 +104,11 @@ def first():
     duck = json.loads(user_response[3])
 
     if duck["answer"] == 'Large scale/enterprise level project':
-        a = a + 2
+        a = a + 3
         r = r + 1
 
     elif duck["answer"] == 'Medium scale/business website':
-        r = r + 1
+        r = r + 2
 
     elif duck["answer"] == 'Small scale/personal project':
         r = r + 1
@@ -123,15 +123,22 @@ def first():
     if a_percent >= v_percent and a_percent >= r_percent:
         result = "Angular"
         percent = round(a_percent)
+        colour = "#F0A6AD"
+        image = "https://angular.io/assets/images/logos/angular/angular.svg"
     elif v_percent >= a_percent and v_percent >= r_percent:
-        result = "Vue"
+        result = "Vue.js"
         percent = round(v_percent)
+        colour = "#C1EDD6"
+        image = "https://vuejs.org/images/logo.png"
     elif r_percent >= a_percent and r_percent >= v_percent:
         result = "React"
         percent = round(r_percent)
+        colour = "#7BA5CF"
+        image = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
 
 
-    return jsonify(result, str(percent)+'%')
+
+    return jsonify(result, str(percent)+'%', colour, image)
 
 @app.route('/second', methods=['Get'])
 def second():
@@ -145,7 +152,7 @@ def second():
 
 # Algorithm to score the frameworks based on user data
     if pig["answer"] == 'Frequently updated with dynamic content':
-        r = r + 2
+        r = r + 3
 
     elif pig["answer"] == 'Updated occassionally':
         r = r + 1
@@ -158,12 +165,12 @@ def second():
     horse = json.loads(user_response[1])
 
     if horse["answer"] == 'Yes':
-        v = v + 2
+        v = v + 3
 
     cow = json.loads(user_response[2])
 
     if cow["answer"] == 'Expert':
-        a = a + 1
+        a = a + 2
         r = r + 1
 
     elif cow["answer"] == 'Intermediate':
@@ -176,11 +183,11 @@ def second():
     duck = json.loads(user_response[3])
 
     if duck["answer"] == 'Large scale/enterprise level project':
-        a = a + 2
+        a = a + 3
         r = r + 1
 
     elif duck["answer"] == 'Medium scale/business website':
-        r = r + 1
+        r = r + 2
 
     elif duck["answer"] == 'Small scale/personal project':
         r = r + 1
@@ -195,15 +202,21 @@ def second():
     if a_percent >= v_percent and a_percent <= r_percent or a_percent <= v_percent and a_percent >= r_percent:
         result = "Angular"
         percent = round(a_percent)
+        colour = "#F0A6AD"
+        image = "https://angular.io/assets/images/logos/angular/angular.svg"
     elif v_percent >= a_percent and v_percent <= r_percent or v_percent <= a_percent and v_percent >= r_percent:
         result = "Vue"
         percent = round(v_percent)
+        colour = "#C1EDD6"
+        image = "https://vuejs.org/images/logo.png"
     elif r_percent >= a_percent and r_percent <= v_percent or r_percent <= a_percent and r_percent >= v_percent:
         result = "React"
         percent = round(r_percent)
+        colour = "#7BA5CF"
+        image = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
 
 
-    return jsonify(result, str(percent)+'%')
+    return jsonify(result, str(percent)+'%', colour, image)
 
 @app.route('/third', methods=['Get'])
 def third():
@@ -217,7 +230,7 @@ def third():
 
 # Algorithm to score the frameworks based on user data
     if pig["answer"] == 'Frequently updated with dynamic content':
-        r = r + 2
+        r = r + 3
 
     elif pig["answer"] == 'Updated occassionally':
         r = r + 1
@@ -230,12 +243,12 @@ def third():
     horse = json.loads(user_response[1])
 
     if horse["answer"] == 'Yes':
-        v = v + 2
+        v = v + 3
 
     cow = json.loads(user_response[2])
 
     if cow["answer"] == 'Expert':
-        a = a + 1
+        a = a + 2
         r = r + 1
 
     elif cow["answer"] == 'Intermediate':
@@ -248,11 +261,11 @@ def third():
     duck = json.loads(user_response[3])
 
     if duck["answer"] == 'Large scale/enterprise level project':
-        a = a + 2
+        a = a + 3
         r = r + 1
 
     elif duck["answer"] == 'Medium scale/business website':
-        r = r + 1
+        r = r + 2
 
     elif duck["answer"] == 'Small scale/personal project':
         r = r + 1
@@ -267,15 +280,20 @@ def third():
     if a_percent <= v_percent and a_percent <= r_percent:
         result = "Angular"
         percent = round(a_percent)
+        colour = "#F0A6AD"
+        image = "https://angular.io/assets/images/logos/angular/angular.svg"
     elif v_percent <= a_percent and v_percent <= r_percent:
         result = "Vue"
         percent = round(v_percent)
+        colour = "#C1EDD6"
+        image = "https://vuejs.org/images/logo.png"
     elif r_percent <= a_percent and r_percent <= v_percent:
         result = "React"
         percent = round(r_percent)
+        colour = "#7BA5CF"
+        image = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
 
-
-    return jsonify(result, str(percent)+'%')
+    return jsonify(result, str(percent)+'%', colour, image)
 
 
 if __name__ == '__main__':

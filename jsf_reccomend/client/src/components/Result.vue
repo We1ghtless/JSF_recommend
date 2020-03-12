@@ -1,17 +1,26 @@
 <template lang="html">
   <div class="container">
-    <div class="first">
-      <h1>{{ first[0] }}</h1>
-      <h2>{{ first[1]}} Match</h2>
+    <div class="first" id="1">
+      <img :src="first[3]" alt="">
+      <div class="text">
+        <h1>{{ first[0] }}</h1>
+        <h2>{{ first[1]}} Match</h2>
+      </div>
     </div>
     <div class="row">
-      <div class="col">
-        <h2>{{ second[0] }}</h2>
-        <h3>{{ second[1] }} Match</h3>
+      <div class="col" id="2">
+        <img :src="second[3]" alt="">
+        <div class="text">
+          <h3>{{ second[0] }}</h3>
+          <h4>{{ second[1] }} Match</h4>
+        </div>
       </div>
-      <div class="col">
-        <h2>{{ third[0] }}</h2>
-        <h3>{{ third[1] }} Match</h3>
+      <div class="col" id="3">
+        <img :src="third[3]" alt="">
+        <div class="text">
+          <h3>{{ third[0] }}</h3>
+          <h4>{{ third[1] }} Match</h4>
+        </div>
       </div>
     </div>
   </div>
@@ -35,6 +44,7 @@ export default {
       axios.get(path)
       .then((res) => {
         this.first = res.data
+        document.getElementById("1").style.backgroundColor = this.first[2];
       })
     },
     getSecond() {
@@ -42,6 +52,8 @@ export default {
       axios.get(path)
       .then((res) => {
         this.second = res.data
+        document.getElementById("2").style.backgroundColor = this.second[2];
+
       })
     },
     getThird() {
@@ -49,6 +61,7 @@ export default {
       axios.get(path)
       .then((res) => {
         this.third = res.data
+        document.getElementById("3").style.backgroundColor = this.third[2];
       })
     }
   },
@@ -61,12 +74,29 @@ export default {
 </script>
 
 <style lang="css" scoped>
-/* .first {
-  margin: auto;
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.first {
   padding: 40px;
   border-radius: 10px;
-  background-color: #BBECD2;
   text-align: center;
-  max-width: 600px;
-} */
+}
+
+.col {
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 15px;
+}
+
+.text {
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
 </style>
