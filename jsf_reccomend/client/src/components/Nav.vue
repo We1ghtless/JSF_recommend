@@ -1,12 +1,12 @@
 <template lang="html">
   <nav class="navbar navbar-dark bg-dark navbar-expand">
-    <a href="#" @click="getHome()"><span class="navbar-brand mb-0 h1">JSF Recommend</span></a>
+    <a href="" @click="getHome()"><span class="navbar-brand mb-0 h1">JSF Recommend</span></a>
     <ul class="navbar-nav">
       <li nav-item active>
-        <a class="nav-link" href="#" @click="getQuiz()">Quiz <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="" @click="getQuiz()">Quiz <span class="sr-only">(current)</span></a>
       </li>
       <li nav-item active>
-        <a class="nav-link" href="#" @click="getAbout()">About <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="" @click="getAbout()">About <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </nav>

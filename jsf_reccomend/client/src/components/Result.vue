@@ -4,7 +4,7 @@
       <img :src="first[3]" alt="">
       <div class="text">
         <h1>{{ first[0] }}</h1>
-        <h2>{{ first[1]}} Match</h2>
+        <h2>{{ first[1]}}</h2>
       </div>
     </div>
     <div class="row">
@@ -12,14 +12,14 @@
         <img :src="second[3]" alt="">
         <div class="text">
           <h3>{{ second[0] }}</h3>
-          <h4>{{ second[1] }} Match</h4>
+          <h4>{{ second[1] }}</h4>
         </div>
       </div>
       <div class="col" id="3">
         <img :src="third[3]" alt="">
         <div class="text">
           <h3>{{ third[0] }}</h3>
-          <h4>{{ third[1] }} Match</h4>
+          <h4>{{ third[1] }}</h4>
         </div>
       </div>
     </div>
