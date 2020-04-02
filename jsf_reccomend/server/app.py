@@ -69,48 +69,48 @@ def first():
     r = 0
     a = 0
 
-    pig = json.loads(user_response[0])
+    first = json.loads(user_response[0])
 
 # Algorithm to score the frameworks based on user data
-    if pig["answer"] == 'Frequently updated with dynamic content':
+    if first["answer"] == 'Frequently updated with dynamic content':
         r = r + 3
 
-    elif pig["answer"] == 'Updated occassionally':
+    elif first["answer"] == 'Updated occassionally':
         r = r + 1
         v = v + 1
 
-    elif pig["answer"] == 'Rarely updated':
+    elif first["answer"] == 'Rarely updated':
         a = a + 1
         v = v + 1
 
-    horse = json.loads(user_response[1])
+    second = json.loads(user_response[1])
 
-    if horse["answer"] == 'Yes':
+    if second["answer"] == 'Yes':
         v = v + 3
 
-    cow = json.loads(user_response[2])
+    third = json.loads(user_response[2])
 
-    if cow["answer"] == 'Expert':
+    if third["answer"] == 'Expert':
         a = a + 2
         r = r + 1
 
-    elif cow["answer"] == 'Intermediate':
+    elif third["answer"] == 'Intermediate':
         r = r + 2
 
-    elif cow["answer"] == 'Beginner':
+    elif third["answer"] == 'Beginner':
         r = r + 1
         v = v + 2
 
-    duck = json.loads(user_response[3])
+    fourth = json.loads(user_response[3])
 
-    if duck["answer"] == 'Large scale/enterprise level project':
+    if fourth["answer"] == 'Large scale/enterprise level project':
         a = a + 3
         r = r + 1
 
-    elif duck["answer"] == 'Medium scale/business website':
+    elif fourth["answer"] == 'Medium scale/business website':
         r = r + 2
 
-    elif duck["answer"] == 'Small scale/personal project':
+    elif fourth["answer"] == 'Small scale/personal project':
         r = r + 1
         v = v + 1
 
@@ -120,22 +120,23 @@ def first():
     (v_percent) = (float(v) / float(total))*float(100)
     (r_percent) = (float(r) / float(total))*float(100)
 
+
+
     if a_percent >= v_percent and a_percent >= r_percent:
-        result = "Angular"
-        percent = round(a_percent)
-        colour = "#F0A6AD"
-        image = "https://angular.io/assets/images/logos/angular/angular.svg"
+        result = "React"
+        percent = round(r_percent)
+        colour = "#7BA5CF"
+        image = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
     elif v_percent >= a_percent and v_percent >= r_percent:
         result = "Vue.js"
         percent = round(v_percent)
         colour = "#C1EDD6"
         image = "https://vuejs.org/images/logo.png"
     elif r_percent >= a_percent and r_percent >= v_percent:
-        result = "React"
-        percent = round(r_percent)
-        colour = "#7BA5CF"
-        image = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
-
+        result = "Angular"
+        percent = round(a_percent)
+        colour = "#F0A6AD"
+        image = "https://angular.io/assets/images/logos/angular/angular.svg"
 
 
     return jsonify(result, str(percent)+'%', colour, image)
@@ -148,48 +149,48 @@ def second():
     r = 0
     a = 0
 
-    pig = json.loads(user_response[0])
+    first = json.loads(user_response[0])
 
 # Algorithm to score the frameworks based on user data
-    if pig["answer"] == 'Frequently updated with dynamic content':
+    if first["answer"] == 'Frequently updated with dynamic content':
         r = r + 3
 
-    elif pig["answer"] == 'Updated occassionally':
+    elif first["answer"] == 'Updated occassionally':
         r = r + 1
         v = v + 1
 
-    elif pig["answer"] == 'Rarely updated':
+    elif first["answer"] == 'Rarely updated':
         a = a + 1
         v = v + 1
 
-    horse = json.loads(user_response[1])
+    second = json.loads(user_response[1])
 
-    if horse["answer"] == 'Yes':
+    if second["answer"] == 'Yes':
         v = v + 3
 
-    cow = json.loads(user_response[2])
+    third = json.loads(user_response[2])
 
-    if cow["answer"] == 'Expert':
+    if third["answer"] == 'Expert':
         a = a + 2
         r = r + 1
 
-    elif cow["answer"] == 'Intermediate':
+    elif third["answer"] == 'Intermediate':
         r = r + 2
 
-    elif cow["answer"] == 'Beginner':
+    elif third["answer"] == 'Beginner':
         r = r + 1
         v = v + 2
 
-    duck = json.loads(user_response[3])
+    fourth = json.loads(user_response[3])
 
-    if duck["answer"] == 'Large scale/enterprise level project':
+    if fourth["answer"] == 'Large scale/enterprise level project':
         a = a + 3
         r = r + 1
 
-    elif duck["answer"] == 'Medium scale/business website':
+    elif fourth["answer"] == 'Medium scale/business website':
         r = r + 2
 
-    elif duck["answer"] == 'Small scale/personal project':
+    elif fourth["answer"] == 'Small scale/personal project':
         r = r + 1
         v = v + 1
 
@@ -226,48 +227,48 @@ def third():
     r = 0
     a = 0
 
-    pig = json.loads(user_response[0])
+    first = json.loads(user_response[0])
 
 # Algorithm to score the frameworks based on user data
-    if pig["answer"] == 'Frequently updated with dynamic content':
+    if first["answer"] == 'Frequently updated with dynamic content':
         r = r + 3
 
-    elif pig["answer"] == 'Updated occassionally':
+    elif first["answer"] == 'Updated occassionally':
         r = r + 1
         v = v + 1
 
-    elif pig["answer"] == 'Rarely updated':
+    elif first["answer"] == 'Rarely updated':
         a = a + 1
         v = v + 1
 
-    horse = json.loads(user_response[1])
+    second = json.loads(user_response[1])
 
-    if horse["answer"] == 'Yes':
+    if second["answer"] == 'Yes':
         v = v + 3
 
-    cow = json.loads(user_response[2])
+    third = json.loads(user_response[2])
 
-    if cow["answer"] == 'Expert':
+    if third["answer"] == 'Expert':
         a = a + 2
         r = r + 1
 
-    elif cow["answer"] == 'Intermediate':
+    elif third["answer"] == 'Intermediate':
         r = r + 2
 
-    elif cow["answer"] == 'Beginner':
+    elif third["answer"] == 'Beginner':
         r = r + 1
         v = v + 2
 
-    duck = json.loads(user_response[3])
+    fourth = json.loads(user_response[3])
 
-    if duck["answer"] == 'Large scale/enterprise level project':
+    if fourth["answer"] == 'Large scale/enterprise level project':
         a = a + 3
         r = r + 1
 
-    elif duck["answer"] == 'Medium scale/business website':
+    elif fourth["answer"] == 'Medium scale/business website':
         r = r + 2
 
-    elif duck["answer"] == 'Small scale/personal project':
+    elif fourth["answer"] == 'Small scale/personal project':
         r = r + 1
         v = v + 1
 

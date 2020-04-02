@@ -2,8 +2,8 @@
   <div id="app">
     <navBar/>
     <transition name="moveInUp">
-    <router-view></router-view>
-  </transition>
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 

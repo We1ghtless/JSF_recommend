@@ -54,6 +54,7 @@ export default {
       if (this.i > 4) {
         this.i = 0
       }
+      this.selected = ''
     },
     getQuestion() {
       const path = 'http://localhost:5000/'+this.i;
