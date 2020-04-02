@@ -11,7 +11,7 @@
             </select>
             <div class="invalid-feedback">Select answer</div>
           </div>
-          <button type="button" class="btn btn-primary" @click="postAnswer(), getQuestion(), getResult()">Next</button>
+          <button type="button" class="btn btn-primary" @click="action()">Next</button>
         </div>
       </form>
     </div>
@@ -29,6 +29,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: 'Form',
   data() {
@@ -42,6 +43,18 @@ export default {
     };
   },
   methods: {
+    action() {
+      if (this.selected != '') {
+        this.postAnswer(),
+        this.getQuestion(),
+        this.getResult()
+      } else {
+        this.error()
+      }
+    },
+    error() {
+
+    },
     postAnswer() {
       const path = 'http://localhost:5000/answers'
       axios.post(path, {
@@ -71,6 +84,10 @@ export default {
       if (this.i == 4) {
         this.$router.push({name:'Result'})
       }
+    },
+    setName(value) {
+      this.selected = value
+      this.$v.selected.$touch()
     }
   },
   created() {
