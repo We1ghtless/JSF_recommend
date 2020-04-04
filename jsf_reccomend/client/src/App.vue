@@ -1,41 +1,50 @@
 <template>
   <div id="app">
     <navBar/>
-    <transition name="moveInUp">
+    <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
+    <foooter/>
   </div>
 </template>
 
 <script>
 import navBar from './components/Nav.vue'
+import foooter from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    'navBar': navBar
+    'navBar': navBar,
+    'foooter': foooter
   }
 }
 </script>
 
 <style>
 #app {
+  font-size: 100%;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f7f7f7;
+  background-image: url('./assets/bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.moveInUp-enter-active {
-  opacity: 0;
-  transition: opacity 1s ease-in;
+router-view {
+
 }
 
-.moveInUp-enter-active {
-  animation: fadeIn 1s ease-in;
-}
-@keyframes fadeIn {
-  0%{    opacity: 0;  }
-  50%{    opacity: 0.5;  }
-  100%{    opacity: 1;  }
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
 }
 
-.moveInUp-leave-active{  animation: moveInUp .3s ease-in;}@keyframes moveInUp{ 0%{  transform: translateY(0); }  100%{  transform: translateY(-400px); }}
-
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
 </style>

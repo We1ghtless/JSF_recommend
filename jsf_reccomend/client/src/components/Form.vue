@@ -1,21 +1,38 @@
 <template>
-  <div class="container">
-    <div class="form-group">
-      <form class="needs-validation" novalidate>
-        <div class="formBox" name="box">
-          <h3>{{ question.question }}</h3>
-          <div class="form-group">
-            <select class="custom-select browser-default" v-model='selected' required>
-              <option hidden value="" selected disabled>Select an option...</option>
-              <option v-bind:key="answer" v-for="answer in question.answers" :value="answer">{{ answer }}</option>
-            </select>
-            <div class="invalid-feedback">Select answer</div>
+  <div class="">
+    <div class="container">
+      <h1 class="">The quiz</h1>
+      <p class="lead" id="text">Answer all the questions to receive a suggestion.</p>
+    </div>
+    <div class="container">
+      <div class="form-group">
+        <form class="needs-validation" novalidate>
+          <div class="formBox" name="box">
+            <h2>{{ question.question }}</h2>
+            <div class="form-group">
+              <select class="custom-select browser-default" v-model='selected' required>
+                <option hidden value="" selected disabled>Select an option...</option>
+                <option v-bind:key="answer" v-for="answer in question.answers" :value="answer">{{ answer }}</option>
+              </select>
+              <div class="invalid-feedback">Select answer</div>
+            </div>
+            <button type="button" class="btn btn-primary" @click="action()">Next</button>
           </div>
-          <button type="button" class="btn btn-primary" @click="action()">Next</button>
-        </div>
-      </form>
+        </form>
+      </div>
+    </div>
+    <div class="formBox" >
+      <h1>Answers</h1>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" v-bind:key="item" v-for="item in this.answers">
+          <div class="container">
+            {{ item }}
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
+
 
   <!-- <div class="container">
   <transition name="fade" >
@@ -39,7 +56,8 @@ export default {
       selected: '',
       result: '',
       question: [],
-      i: 0
+      i: 0,
+      answers: [],
     };
   },
   methods: {
@@ -48,12 +66,7 @@ export default {
         this.postAnswer(),
         this.getQuestion(),
         this.getResult()
-      } else {
-        this.error()
       }
-    },
-    error() {
-
     },
     postAnswer() {
       const path = 'http://localhost:5000/answers'
@@ -66,6 +79,12 @@ export default {
       this.i = this.i + 1
       if (this.i > 4) {
         this.i = 0
+      }
+      if (this.answers.length < 4) {
+        this.answers.push(this.selected)
+      }
+      if (this.answers.length >= 4) {
+        this.answers = []
       }
       this.selected = ''
     },
@@ -96,7 +115,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1s;
@@ -110,7 +129,6 @@ export default {
   margin: auto;
   padding: 40px;
   border-radius: 10px;
-  background-color: #BBECD2;
   text-align: center;
   max-width: 600px;
 }
@@ -120,4 +138,21 @@ export default {
   margin-bottom: 20px;
 }
 
+#text {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.list-group-item {
+  border: 0px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 </style>

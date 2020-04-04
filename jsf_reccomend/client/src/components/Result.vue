@@ -1,27 +1,56 @@
 <template lang="html">
   <div class="container">
     <div class="first" id="1">
-      <img :src="first[3]" alt="">
+      <img :src="result[3]" alt="">
       <div class="text">
-        <h1>{{ first[0] }}</h1>
-        <h2>{{ first[1]}}</h2>
+        <h1>{{ result[0] }}</h1>
+        <h2>{{ result[1]}}</h2>
+        <p>{{ result[4]}}</p>
+        <a :href="result[5]">{{ result[5] }}</a>
       </div>
     </div>
     <div class="row">
       <div class="col" id="2">
-        <img :src="second[3]" alt="">
+        <img :src="result[9]" alt="">
         <div class="text">
-          <h3>{{ second[0] }}</h3>
-          <h4>{{ second[1] }}</h4>
+          <h3>{{ result[6] }}</h3>
+          <h4>{{ result[7] }}</h4>
+          <a :href="result[11]">{{ result[11]}}</a>
         </div>
       </div>
       <div class="col" id="3">
-        <img :src="third[3]" alt="">
+        <img :src="result[15]" alt="">
         <div class="text">
-          <h3>{{ third[0] }}</h3>
-          <h4>{{ third[1] }}</h4>
+          <h3>{{ result[12] }}</h3>
+          <h4>{{ result[13] }}</h4>
+          <a :href="result[17]">{{ result[17] }}</a>
         </div>
       </div>
+    </div>
+    <div class="formBox" >
+      <h1>Answers</h1>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <div class="container">
+            {{ result[21] }}
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="container">
+            {{ result[20] }}
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="container">
+            {{ result[19] }}
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="container">
+            {{ result[18] }}
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -33,44 +62,26 @@ export default {
   name: 'Result',
   data() {
     return {
-      first: '',
-      second: '',
-      third: '',
+      result: '',
     }
   },
   methods: {
-    getFirst() {
+    getResult() {
       const path = 'http://localhost:5000/first'
       axios.get(path)
       .then((res) => {
-        this.first = res.data
-        document.getElementById("1").style.backgroundColor = this.first[2];
-      })
-    },
-    getSecond() {
-      const path = 'http://localhost:5000/second'
-      axios.get(path)
-      .then((res) => {
-        this.second = res.data
-        document.getElementById("2").style.backgroundColor = this.second[2];
-
-      })
-    },
-    getThird() {
-      const path = 'http://localhost:5000/third'
-      axios.get(path)
-      .then((res) => {
-        this.third = res.data
-        document.getElementById("3").style.backgroundColor = this.third[2];
+        this.result = res.data
+        document.getElementById("1").style.backgroundColor = this.result[2];
+        document.getElementById("2").style.backgroundColor = this.result[8];
+        document.getElementById("3").style.backgroundColor = this.result[14];
       })
     }
   },
   created() {
-    this.getFirst(),
-    this.getSecond(),
-    this.getThird()
-  }
+    this.getResult()
+  },
 }
+
 </script>
 
 <style lang="css" scoped>
@@ -82,21 +93,47 @@ img {
 
 .first {
   padding: 40px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   text-align: center;
 }
 
 .col {
   padding: 10px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   text-align: center;
   margin: 15px;
 }
 
 .text {
   background-color: white;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   margin-top: 10px;
   padding: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+.formBox {
+  margin: auto;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+}
+h1 {
+  font-weight: 300;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.list-group-item {
+  border: 0px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 </style>

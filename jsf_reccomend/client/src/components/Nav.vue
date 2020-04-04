@@ -31,7 +31,7 @@ export default {
 <style lang="css" scoped>
 
 nav {
-  margin-bottom: 20px;
+  margin-bottom: 4rem;
 }
 
 </style>
