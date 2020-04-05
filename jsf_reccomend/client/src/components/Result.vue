@@ -1,56 +1,59 @@
 <template lang="html">
-  <div class="container">
-    <div class="first" id="1">
-      <img :src="result[3]" alt="">
-      <div class="text">
-        <h1>{{ result[0] }}</h1>
-        <h2>{{ result[1]}}</h2>
-        <p>{{ result[4]}}</p>
-        <a :href="result[5]">{{ result[5] }}</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col" id="2">
-        <img :src="result[9]" alt="">
+  <div class="">
+    <h1>Result</h1>
+    <div class="container">
+      <div class="first" id="1">
+        <img :src="result[3]" alt="">
         <div class="text">
-          <h3>{{ result[6] }}</h3>
-          <h4>{{ result[7] }}</h4>
-          <a :href="result[11]">{{ result[11]}}</a>
+          <h1>{{ result[0] }}</h1>
+          <h2>{{ result[1]}}</h2>
+          <p>{{ result[4]}}</p>
+          <a :href="result[5]" target="_blank">{{ result[5] }}</a>
         </div>
       </div>
-      <div class="col" id="3">
-        <img :src="result[15]" alt="">
-        <div class="text">
-          <h3>{{ result[12] }}</h3>
-          <h4>{{ result[13] }}</h4>
-          <a :href="result[17]">{{ result[17] }}</a>
+      <div class="row">
+        <div class="col" id="2">
+          <img :src="result[9]" alt="">
+          <div class="text">
+            <h3>{{ result[6] }}</h3>
+            <h4>{{ result[7] }}</h4>
+            <a :href="result[11]" target="_blank">{{ result[11]}}</a>
+          </div>
+        </div>
+        <div class="col" id="3">
+          <img :src="result[15]" alt="">
+          <div class="text">
+            <h3>{{ result[12] }}</h3>
+            <h4>{{ result[13] }}</h4>
+            <a :href="result[17]" target="_blank">{{ result[17] }}</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="formBox" >
-      <h1>Answers</h1>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <div class="container">
-            {{ result[21] }}
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="container">
-            {{ result[20] }}
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="container">
-            {{ result[19] }}
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="container">
-            {{ result[18] }}
-          </div>
-        </li>
-      </ul>
+      <div class="formBox" >
+        <h1>Answers</h1>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="container">
+              {{ result[21] }}
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="container">
+              {{ result[20] }}
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="container">
+              {{ result[19] }}
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="container">
+              {{ result[18] }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -129,7 +132,15 @@ h1 {
 }
 
 h2 {
-  font-weight: 400;
+  font-weight: 300;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+h4 {
+  font-weight: 300;
 }
 
 .list-group-item {

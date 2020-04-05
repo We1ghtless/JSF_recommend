@@ -47,6 +47,10 @@ main {
 
 }
 
+h1 {
+  font-weight: 300;
+}
+
 p {
   margin-bottom: 4px;
 }

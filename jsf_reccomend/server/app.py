@@ -32,7 +32,9 @@ def addAnswer():
         req_data = request.get_json()
         data = json.dumps(req_data)
 
-        user_response.insert(i, data)
+        response = json.loads(data)
+
+        user_response.insert(i, response)
         message = 'SUCCESS'
         i = i + 1
 
@@ -70,7 +72,7 @@ def first():
     r = 0
     a = 0
 
-    first = json.loads(user_response[0])
+    first = user_response[0]
 
 # Algorithm to score the frameworks based on user data
     if first["answer"] == 'Frequently updated with dynamic content':
@@ -84,12 +86,12 @@ def first():
         a = a + 1
         v = v + 1
 
-    second = json.loads(user_response[1])
+    second = user_response[1]
 
     if second["answer"] == 'Yes':
         v = v + 3
 
-    third = json.loads(user_response[2])
+    third = user_response[2]
 
     if third["answer"] == 'Expert':
         a = a + 2
@@ -102,7 +104,7 @@ def first():
         r = r + 1
         v = v + 2
 
-    fourth = json.loads(user_response[3])
+    fourth = user_response[3]
 
     if fourth["answer"] == 'Large scale/enterprise level project':
         a = a + 3
@@ -198,7 +200,7 @@ def first():
             content3 = "React is the industry leader and most popular framework for its extensibility and ability to create interactive UIs"
             link3 = "https://reactjs.org"
 
-    return jsonify(result, str(percent)+'%', colour, image, content, link, result2, str(percent2)+'%', colour2, image2, content2, link2, result3, str(percent3)+'%', colour3, image3, content3, link3, user_response[0], user_response[1], user_response[2], user_response[3])
+    return jsonify(result, str(percent)+'%', colour, image, content, link, result2, str(percent2)+'%', colour2, image2, content2, link2, result3, str(percent3)+'%', colour3, image3, content3, link3, user_response[0]['answer'], user_response[1]['answer'], user_response[2]['answer'], user_response[3]['answer'])
 
 if __name__ == '__main__':
     app.run()

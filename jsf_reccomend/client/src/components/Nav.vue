@@ -1,6 +1,6 @@
 <template lang="html">
   <nav class="navbar navbar-dark bg-dark navbar-expand">
-    <a href="" @click="getHome()"><span class="navbar-brand mb-0 h1">JSF Recommend</span></a>
+    <a href="" @click="getHome()"><span class="navbar-brand mb-0"><h4>JSF Recommend</h4></span></a>
     <ul class="navbar-nav">
       <li nav-item active>
         <a class="nav-link" href="" @click="getQuiz()">Quiz <span class="sr-only">(current)</span></a>
@@ -33,5 +33,14 @@ export default {
 nav {
   margin-bottom: 4rem;
 }
+
+a {
+  font-weight: 300;
+}
+
+h4 {
+  font-weight: 300;
+}
+
 
 </style>
