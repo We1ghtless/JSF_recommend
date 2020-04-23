@@ -54,6 +54,10 @@
           </li>
         </ul>
       </div>
+      <div class="survey">
+        <p>Please provide some feedback</p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfH1W8mHg5tB1HgkccpFKpx44IHNih0LtVLGm2pdNr5UbQAtA/viewform?embedded=true" width="640" height="837" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
     </div>
   </div>
 </template>
@@ -146,5 +150,9 @@ h4 {
 .list-group-item {
   border: 0px;
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.survey {
+  text-align: center;
 }
 </style>

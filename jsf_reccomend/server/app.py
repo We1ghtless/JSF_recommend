@@ -38,8 +38,6 @@ def addAnswer():
         message = 'SUCCESS'
         i = i + 1
 
-        print user_response
-
     if i == 4:
         i = i - 4
 
