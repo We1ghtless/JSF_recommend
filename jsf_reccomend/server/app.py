@@ -201,4 +201,4 @@ def first():
     return jsonify(result, str(percent)+'%', colour, image, content, link, result2, str(percent2)+'%', colour2, image2, content2, link2, result3, str(percent3)+'%', colour3, image3, content3, link3, user_response[0]['answer'], user_response[1]['answer'], user_response[2]['answer'], user_response[3]['answer'])
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', debug=False)
